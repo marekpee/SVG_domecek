@@ -1,0 +1,24 @@
+﻿@page "/"
+
+<button class="btn btn-primary" @onclick="PosunL">Posun doleva</button>
+<button class="btn btn-primary" @onclick="PosunR">Posun doprava</button>
+<br />
+<button class="btn btn-warning">Spustit posun</button>
+<button class="btn btn-warning">Zastavit posun</button>
+
+<svg width="@SvgWidth" height="@SvgHeight" xmlns="http://www.w3.org/2000/svg" style="border-color:black; border-style:solid">
+    @foreach (var item in SvgObrazceList)
+    {
+        switch(item)
+        {
+            case Models.Obdelnik hovno:
+                <rect width="@hovno.StranaA" height="@hovno.StranaB" x="@hovno.PozX" y="@hovno.PozY"
+                style="fill:blue;stroke-width:5;opacity:1" />
+                break;
+            case Models.Ctverec ctverec:
+                <rect width="@ctverec.StranaA" height="@ctverec.StranaA" x="@ctverec.PozX" y="@ctverec.PozY"
+                      style="fill:red;stroke-width:5;opacity:1" />
+                break;
+        }
+    }
+</svg>
